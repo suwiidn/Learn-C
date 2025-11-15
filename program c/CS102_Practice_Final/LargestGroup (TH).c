@@ -27,14 +27,6 @@ int main() {
 
     printf("%d %d",max_num , max_manynum);
 
-
-
-
-
-
-
-
-
     return 0;
 
 }

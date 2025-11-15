@@ -1,49 +1,54 @@
 #include <stdio.h>
 
-
 int main() {
+    int i_num ;
 
-    int num_t ,i,j,r;
+    scanf("%d",&i_num);
 
-    scanf("%d",&num_t);
+    int in_num[i_num] ,i ;
 
-    int num[num_t] , totle[100]={0} ,tt[100]={0} ;
+    for(i =0 ; i< i_num ; i++) {
 
-    for (i=0 ; i<num_t ; i++) {
-
-        scanf ("%d",&num[i]);
+        scanf("%d",&in_num[i]);
     }
 
-    j= 1;
-    for(i=5 ; i<=96 ; i++){
+    int totle[100] = {0} ;
 
-        tt[i] = j ;
-        j++ ;
+
+
+    for(i=0 ; i< 5 ; i++) {
+
+        totle[0] += in_num[i] ;
     }
 
-     r = 4;
-    for(i=0 ; i<tt[num_t] ; i++) {
+    int totlelast;
 
-        for(j=0 ; j <= r ; j++) {
+    totlelast = totle[0] ;
 
 
-            totle[i] += num[j] ;
+    for(i=0 ; i <= i_num-5 ; i++) {
 
+
+
+        totle[i+1] = totlelast + in_num[i+5]- in_num[i] ;
+
+        totlelast = totle[i+1] ;
+
+
+
+    }
+
+    totlelast =totle[0] ;
+
+    for (i = 0 ; i<=i_num-5 ; i++) {
+
+        if (totle[i]>=totlelast){
+
+            totlelast = totle[i];
         }
-        r++ ;
-    }
-    int yww ;
-    yww = totle[0];
-
-    for(i =0 ; i<tt[num_t] ; i++) {
-
-        if (yww<totle[i]) {
-
-            yww = totle[i];
-        }
     }
 
-    printf("%d",yww);
+    printf("%d",totlelast);
 
     return 0;
 
